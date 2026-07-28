@@ -54,7 +54,7 @@ public class BtreeNode {
         if(level!=0){
             for (int i=0;i<level-1;i++)
                 System.out.print("\t\t");
-            System.out.println("|------->"+node.data);
+            System.out.println("|------>"+node.data);
         } else {
             System.out.println(node.data);
         }

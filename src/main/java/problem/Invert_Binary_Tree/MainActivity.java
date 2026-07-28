@@ -1,7 +1,5 @@
 package problem.Invert_Binary_Tree;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /*
                 Before Invert                    After Invert
@@ -33,7 +31,9 @@ public class MainActivity {
         node.levelOrderTraversal();
 
         node.display();
-        node.root=invertTree(node.root);
+        //node.root=invertTree(node.root);
+        node.root=invertTreeQueueApproach(node.root);
+        System.out.println("--------------------------------------------------------");
         node.display();
 
     }
@@ -51,5 +51,26 @@ public class MainActivity {
 
         return node;
 
+    }
+
+    public static BtreeNode.Node invertTreeQueueApproach(BtreeNode.Node node){
+        if(node==null)
+            return null;
+
+        Queue<BtreeNode.Node> que=new LinkedList<>();
+        que.add(node);
+
+        while(!que.isEmpty()){
+            BtreeNode.Node ele=que.poll();
+
+            BtreeNode.Node temp=ele.left;
+            ele.left=ele.right;
+            ele.right=temp;
+
+            if(ele.left!=null)que.add(ele.left);
+            if(ele.right!=null)que.add(ele.right);
+        }
+
+        return node;
     }
 }
