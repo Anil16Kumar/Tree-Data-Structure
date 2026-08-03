@@ -28,6 +28,8 @@ public class MainActivity {
         System.out.println("level order traversal:");
         levelOrderTraversal(treeNode.root);
 
+        System.out.println("height of tree: "+heightOfTree(treeNode.root));
+
     }
 
     public static int sizeOfTree(TreeNode.Node node){
@@ -60,5 +62,11 @@ public class MainActivity {
 
             System.out.println();
         }
+    }
+
+    public static int heightOfTree(TreeNode.Node node){
+        if(node==null)
+            return 0;
+        return 1+Math.max(heightOfTree(node.left), heightOfTree(node.right));
     }
 }
