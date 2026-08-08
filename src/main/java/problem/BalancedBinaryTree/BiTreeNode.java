@@ -1,5 +1,8 @@
 package problem.BalancedBinaryTree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BiTreeNode {
 
     public class Node {
@@ -78,6 +81,25 @@ public class BiTreeNode {
         }
 
         dislayHelper(node.left, level+1);
+    }
+
+    public void printAllPath(){
+        printAllPathHelp(root, new ArrayList<Integer>());
+    }
+    private void printAllPathHelp(Node node, List<Integer> lst){
+        if(node==null){
+            return;
+        }
+
+        lst.add(node.data);
+
+        if(node.left==null && node.right==null){
+            System.out.println(lst);
+        }else{
+            printAllPathHelp(node.left, lst);
+            printAllPathHelp(node.right, lst);
+        }
+        lst.removeLast();
     }
 
 }

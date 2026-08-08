@@ -15,6 +15,7 @@ public class MainActivity {
         biTreeNode.addNode(342);
 
         biTreeNode.display();
+        biTreeNode.printAllPath();
 
     }
 }
